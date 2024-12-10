@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "6754c9dd7259d45eea38bdd1"
+  },
+  "title": "Question 1",
+  "quiz": {
+    "$oid": "6750f9457259d45eea38bdb5"
+  },
+  "type": "True False",
+  "points": 5,
+  "question": "Will this work?",
+  "choices": [
+    "True",
+    "False"
+  ],
+  "answer": "No"
+},
+{
+  "_id": {
+    "$oid": "6754c9dd7259d45eea38bdd2"
+  },
+  "title": "Question 2",
+  "quiz": {
+    "$oid": "6750f9457259d45eea38bdb5"
+  },
+  "type": "Fill in the Blank",
+  "points": 5,
+  "question": "Will this work?",
+  "choices": [],
+  "answer": "No"
+},
+{
+  "_id": {
+    "$oid": "6754c9dd7259d45eea38bdd3"
+  },
+  "title": "Question 3",
+  "quiz": {
+    "$oid": "6750f9457259d45eea38bdb5"
+  },
+  "type": "Multiple Choice",
+  "points": 5,
+  "question": "Will this work?",
+  "choices": [
+    "yes",
+    "no",
+    "maybe"
+  ],
+  "answer": "No"
+}]
