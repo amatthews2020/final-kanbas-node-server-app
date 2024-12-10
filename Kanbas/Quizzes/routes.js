@@ -1,10 +1,10 @@
 import * as QuizDao from "./dao.js";
 import * as QuestionDao from "../Questions/dao.js"
 export default function QuizzesRoutes(app) {
- app.delete("/api/quizzes/:quizId", async (req, res) => {
-   const { quizId } = req.params;
-   const status = await QuizDao.deleteQuiz(quizId);
-   res.send(status);
+  app.delete("/api/quizzes/:quizId", async (req, res) => {
+    const { quizId } = req.params;
+    const status = await QuizDao.deleteQuiz(quizId);
+    res.send(status);
   });
   app.put("/api/quizzes/:quizId", async (req, res) => {
     const { quizId } = req.params;

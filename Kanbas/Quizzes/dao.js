@@ -10,6 +10,7 @@ export function createQuiz(quiz) {
 export function deleteQuiz(quizId) {
     return model.deleteOne({ _id: quizId });
 }
+
 export function updateQuiz(quizId, quizUpdates) {
     return model.updateOne({ _id: quizId }, quizUpdates);
 }
