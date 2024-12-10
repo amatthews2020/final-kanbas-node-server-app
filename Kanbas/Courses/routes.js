@@ -76,7 +76,18 @@ export default function CourseRoutes(app) {
   app.get("/api/courses/:courseId/quizzes", async (req, res) => {
     const { courseId } = req.params;
     const quizzes = await quizzesDao.findQuizzesForCourse(courseId);
-    res.json(quizzes);
+
+    // Students should only be able to see published quizzes
+    let filteredQuizzes = quizzes; // Declare outside to have scope
+    const currentUser = req.session["currentUser"];
+
+    if (currentUser) {
+      filteredQuizzes = currentUser.role === "STUDENT"
+        ? quizzes.filter((quiz) => quiz.published === true)
+        : quizzes;
+    }
+
+    res.json(filteredQuizzes);
   });
   app.post("/api/courses/:courseId/quizzes", async (req, res) => {
     const { courseId } = req.params;

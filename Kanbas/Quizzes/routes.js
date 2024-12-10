@@ -29,4 +29,5 @@ export default function QuizzesRoutes(app) {
     res.send(newQuestion);
   });
 
+  
 }
