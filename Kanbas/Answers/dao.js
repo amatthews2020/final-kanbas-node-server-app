@@ -1,4 +1,3 @@
-const Answer = require('./model');
 import model from "./model.js";
 
 export function getAnswersByUserId(userId) {
@@ -8,12 +7,12 @@ export function getAnswersByQuizId(quizId) {
     return model.find({ quiz: quizId });
 }
 export function getAnswersByQuizIdAndUserId(quizId, userId) {
-    return model.find({ quiz: quizId, user: userId});
+    return model.find({ quiz: quizId, user: userId });
 }
 
 export function createAnswer(answer) {
-  delete answer._id
-  return model.create(answer);
+    delete answer._id
+    return model.create(answer);
 
 }
 export function deleteAnswer(answerId) {
@@ -24,5 +23,4 @@ export function updateModule(answerId, answerUpdates) {
     return model.updateOne({ _id: answerId }, answerUpdates);
 
 }
-  
-   
+
