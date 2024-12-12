@@ -13,18 +13,18 @@ export default function CourseRoutes(app) {
   app.post("/api/courses", async (req, res) => {
     const course = await dao.createCourse(req.body);
     const currentUser = req.session["currentUser"];
-   if (currentUser) {
-     await enrollmentsDao.enrollUserInCourse(currentUser._id, course._id);
-   }
+    if (currentUser) {
+      await enrollmentsDao.enrollUserInCourse(currentUser._id, course._id);
+    }
 
     res.json(course);
-  }); 
+  });
   app.delete("/api/courses/:courseId", async (req, res) => {
     const { courseId } = req.params;
     const currentUser = req.session["currentUser"];
-   if (currentUser) {
-     await enrollmentsDao.unenrollUserFromCourse(currentUser._id, courseId);
-   }
+    if (currentUser) {
+      await enrollmentsDao.unenrollUserFromCourse(currentUser._id, courseId);
+    }
     const status = await dao.deleteCourse(courseId);
     res.send(status);
   });
@@ -54,7 +54,7 @@ export default function CourseRoutes(app) {
     res.json(users);
   };
   app.get("/api/courses/:cid/users", findUsersForCourse);
- 
+
 
   //Assignments
   app.get("/api/courses/:courseId/assignments", async (req, res) => {
@@ -89,13 +89,14 @@ export default function CourseRoutes(app) {
 
     res.json(filteredQuizzes);
   });
+
   app.post("/api/courses/:courseId/quizzes", async (req, res) => {
     const { courseId } = req.params;
     const quiz = {
       ...req.body,
       course: courseId,
     };
-    const newQuiz = await quizzesDao.createAssignment(quiz);
+    const newQuiz = await quizzesDao.createQuiz(quiz);
     res.send(newQuiz);
   });
 }
