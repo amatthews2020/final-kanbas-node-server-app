@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
   answers: [{
     questionId: String,
     answer: String,
+    points: Number,
     isCorrect: Boolean
   }]
 },
