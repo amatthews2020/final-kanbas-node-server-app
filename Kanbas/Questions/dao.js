@@ -9,8 +9,12 @@ export function createQuestion(question) {
     return model.create(question);
 }
 
-export function deleteQuestion(questionId) {
-    return model.deleteOne({ _id: questionId });
+export async function deleteQuestion(questionId) {
+    const result = await model.deleteOne({ _id: questionId });
+    if (result.deletedCount === 0) {
+        throw new Error(`Question with ID ${questionId} does not exist`);
+    }
+    return result;
 }
 
 export function updateQuestion(questionId, questionUpdates) {

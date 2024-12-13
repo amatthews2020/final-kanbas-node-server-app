@@ -7,7 +7,7 @@ const schema = new mongoose.Schema(
     points: Number,
     question: String,
     choices: [String],
-    answer: String,
+    answer: mongoose.Schema.Types.Mixed,
   },
   { collection: "questions" }
 );
